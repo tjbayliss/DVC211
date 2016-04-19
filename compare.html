@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Changing Family Size. How do your generations compare?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+    
+    <style>
+		
+		body {
+			
+			color:#666;
+		}
+		
+		@font-face {
+			font-family: 'open_sanslight';		
+			src: url('assets/OpenSans-Light-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansitalic';		
+			src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansregular';		
+			src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sanssemibold';		
+			src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		#heading {
+			background-color:#4f4557; /*#a08cb0;*/
+			color:#cbb9cf;	
+		}
+		
+		.lead {
+			color:#e6e6e6 !important;
+		}	
+		@media screen and (min-width: 768px) {
+		  .jumbotron h1,
+		  .jumbotron .h1 {
+			font-size: 40px !important;
+		  }
+		  
+		  .jumbotron p,
+		  .jumbotron .p {
+			font-size: 20px !important;
+		  }
+		}
+		
+		.jumbotron {
+			padding-top:0px !important;
+			font-size:
+		}	
+				
+		.social {
+			padding-top:25px;
+			padding-left:5px;
+			float:right;
+			opacity:0.5;
+			cursor:pointer;
+		}
+		
+		.social:hover {
+			opacity:1;
+				
+		}
+		
+		
+		#embedrow {
+			padding-bottom:10px;
+			
+		}
+		
+		
+		#close {
+			float:right;
+			opacity:0.5;
+			cursor:pointer;
+		}
+
+		#close:hover {
+			opacity:1;
+		}
+			
+		.axis path
+		{
+			fill: none;
+		}
+		.axis line
+		{
+			fill: none;
+			stroke: #ccc;
+			stroke-width: 0.1%
+		}
+	
+		
+		.tick text {
+			font-family:"open_sansregular",sans-serif,Helvetica,Arial;
+			font-size:20px;
+			fill:#666;
+			x:-6;
+		}
+		
+		.mainChart
+			{		
+	
+				width:100%;
+				/*height:300px;*/
+		
+			}
+			
+		#chart {
+		
+			height:600px;
+		
+		}
+		
+		#chart1 {
+				width:100%;
+		}
+		
+		#chart2 {
+				width:100%;
+		}
+		
+		#chart3 {
+				width:100%;
+		}				
+		
+		
+		#bar0 {
+			fill: #8dd3c7;	
+			opacity:0.7;	
+		}
+		
+		#bar1 {
+			fill: #bebada;
+			opacity:0.7;			
+		}
+		
+		.labels {
+			text-anchor:middle;
+			font-size:18px;
+			fill:#666;
+		}
+		
+		
+		
+		
+		#birthYearLabel,
+		#mothersBirthYearLabel,
+		#or{
+			font-size:16px;
+			font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+			color:#666;
+		}
+		
+		
+		#paraGrp1Para1,
+		#paraGrp1Para2,
+		#paraGrp1Para3,
+		#paraGrp2Para1,
+		#paraGrp2Para2,
+		#paraGrp2Para3,
+		#paraGrp2Para4,
+		#paraGrp3Para1,
+		#paraGrp3Para2,
+		#paraGrp3Para3{
+	
+			font-size:14px;
+			font-family:open_sansregular, Arial, Helvetica, sans-serif;
+		}
+		
+		
+		.infoText{
+			display:none;	
+		}
+
+		.row {
+		
+			padding-top:15px;
+			padding-bottom:15px;
+		}
+		
+		label {
+		
+			font-size:15px;
+		}
+		
+		.panel-heading {
+			height:103px;
+		}
+	
+	
+	</style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <script>
+
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+    </script>
+  </head>
+  <body id="childt">
+    <div id="altern"><p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p><img src="images/alt.png"/></div>
+
+    <div class="container-fluid">
+   	<div class="row hide" id="embedrow">
+  		 <div class="col-sm-offset-6 col-sm-6 col-xs-12">
+
+            <div id="embedbox">
+                    <img id="close" src="images/cross.svg"/>
+                    <label class="control-label" for="inputType"></label>
+                    <input type="text" class="form-control" id="inputType" value="ashe.html">
+            </div>  
+        
+	     </div> 
+    </div>     
+   
+   <div class="row">
+           
+          <div class="col-sm-12 col-xs-12"> 
+              
+              <form id="fertCalculator">
+  
+                  <div class="col-sm-4 col-xs-12">        
+
+                    <div id="byear" class="form-group">              
+                        <label id="birthYearLabel" for="birthYear">What year were you born?</label>
+                        <label class"sublabel">Enter a year between 1920-1998</label>
+                        <input type="input" class="form-control" id="birthYear" onblur="onblurBirthYear()">
+                    </div>
+                  </div>
+
+           
+                  <div class="col-sm-4 col-xs-12">
+                    <div id="myear" class="form-group">
+                        <label id="mothersBirthYearLabel" for="birthYear">What year was your mother born?</label>
+                        <label id="sublabel2" class"sublabel">Enter a year between 1920-1998</label>
+                        <input type="input" class="form-control" id="mothersBirthYear"  onblur="onblurMothersBirthYear()" onfocus="onfocusMothersBirthYear()">
+					</div>
+                  </div>
+                 <div class="col-sm-4 col-xs-12">
+ 
+                <div class="checkbox">
+    	            <label id="or">or ...</label><br><br>
+	                <label>
+                    <input type="checkbox" onClick="getMeanAge()" id="meanAgeCheck" disabled value="">
+                   use the average birth year of a mother for someone of your age
+                  </label>
+                </div>	
+                </div>
+                  
+                  
+                
+                  <div class="col-sm-12 col-xs-12">        
+                   
+                                                     
+                        <button type="submit" class="btn btn-default">Compare</button>  
+                  </div>
+             </form>   
+              
+		</div>
+	</div><!-- end row --> 
+                
+                    
+   
+	   <div class="row" id="charts">
+           
+	                        
+                               
+             <div id="chartone" class="col-sm-4 col-xs-12 hide">     
+             
+             <div class="panel panel-default">
+             	<div class="panel-heading">
+                	<h4></h4>
+                    <br>
+                </div>
+                <div class="panel-body">
+                <!-- graph 1 --> 
+                   <div id="chart1">
+                   </div>             
+                </div>
+             </div>                  
+                                   
+                <label class="infoText" id="paraGrp1Para1" for="paraGrp1Para1"></label>
+                <br><br>
+                <label class="infoText" id="paraGrp1Para2" for="paraGrp1Para2"></label>  
+                <label class="infoText" id="paraGrp1Para3" for="paraGrp1Para3"></label> 
+				<br><br>
+             </div>
+
+                  
+             
+              <div id="charttwo" class="col-sm-4 col-xs-12 hide">     
+             
+             <div class="panel panel-default">
+             	<div class="panel-heading">
+                	<h4></h4>
+             		<br>
+                </div>
+                <div class="panel-body">
+                <!-- graph 2 --> 
+                   <div id="chart2">
+                   </div>             
+                 </div>
+             </div>       
+                   
+                <label class="infoText" id="paraGrp2Para1" for="paraGrp2Para1"></label> 
+                <br><br>
+               	<label class="infoText" id="paraGrp2Para2" for="paraGrp2Para2"></label> 
+                <label class="infoText" id="paraGrp2Para3" for="paraGrp2Para3"></label>    
+                <label class="infoText" id="paraGrp2Para4" for="paraGrp2Para4"></label>            
+              	<br><br>
+             </div>
+              
+
+             <div id="chartthree" class="col-sm-4 col-xs-12 hide">     
+             
+             <div class="panel panel-default">
+             	<div class="panel-heading">
+                	<h4></h4>
+                </div>
+                <div class="panel-body">
+                <!-- graph 3 --> 
+                   <div id="chart3">
+                   </div>             
+                 </div>
+             </div>    
+                   
+                <label class="infoText" id="paraGrp3Para1" for="paraGrp3Para1"></label>
+                <br><br>
+                <label class="infoText" id="paraGrp3Para2" for="paraGrp3Para2"></label>
+                <label class="infoText" id="paraGrp3Para3" for="paraGrp3Para3"></label>                      
+          		<br><br><br>
+         </div> 
+     </div>             
+     <div class="row">
+     <div class="col-sm-12 col-xs-12">
+     <div class="page-header">
+     </div>
+     <br>
+     	<p>* A woman is assumed to have completed her childbearing by the last day she is aged 45, i.e. by her 46th birthday. Completed fertility includes fertility rates up to and including age 45.</p>
+     	<p>The methods used to create these estimates by cohort / birth year of women require the use of data collected at birth registration on the number of previous children they have had. At present this information is not collected for men. Without this information it is not possible to produce an estimate of the proportion of men who have not fathered a child.<br><br>
+        Approximately 6% of births are also registered without information on the father being provided and these births also affect our ability to generate comparable statistics for men.<br><br>
+        <a href="http://www.ons.gov.uk/ons/rel/vsob1/further-parental-characteristics--england-and-wales/index.html" target="_blank">Male Period fertlity rates</a> are published annually on the same day as this release.
+        <br><br>
+        This data is shown in more detail in the accompanying <a href="http://www.ons.gov.uk/ons/rel/fertility-analysis/childbearing-for-women-born-in-different-years/index.html" target="_blank">statistical bulletin & reference tables</a><br><a href="mailto:fertility@ons.gsi.gov.uk">fertility@ons.gsi.gov.uk</a>
+        <br>
+        <a href="http://www.ons.gov.uk/ons/interactive/index.html" target="_blank">See more from ONS Digital</a>
+     </p>
+     </div>
+     </div>
+     </div> <!--end container -->
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/pym.js" charset="utf-8"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+
+	
+    
+    </script>
+  </body>
+</html>
